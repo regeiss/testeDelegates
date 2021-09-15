@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+ 
 //This is a interface/protocol with one required function didFinishGettingDataFromInteractor
 //The presenter class will confirm this protol and implement this function to get call back
 protocol InteractorProtocol

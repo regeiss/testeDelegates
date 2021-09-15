@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+ 
 class ServerData
 {
     var countries = [

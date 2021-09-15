@@ -96,6 +96,14 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		E14E60DC26F2AE7900385A2E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E14E60D826F2AAFB00385A2E /* Network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		E176A6DC26EAA668005E0220 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +123,7 @@
 		E176A6E726EAA668005E0220 /* testeDelegates */ = {
 			isa = PBXGroup;
 			children = (
+				E14E60DC26F2AE7900385A2E /* Network */,
 				E14E60D726F2395100385A2E /* Router */,
 				E14E60D626F2394800385A2E /* View */,
 				E14E60D526F1448C00385A2E /* Presenter */,
@@ -126,7 +135,6 @@
 				E176A6F126EAA66F005E0220 /* Assets.xcassets */,
 				E176A6F326EAA66F005E0220 /* LaunchScreen.storyboard */,
 				E176A6F626EAA66F005E0220 /* Info.plist */,
-				E14E60D826F2AAFB00385A2E /* Network.swift */,
 			);
 			path = testeDelegates;
 			sourceTree = "<group>";

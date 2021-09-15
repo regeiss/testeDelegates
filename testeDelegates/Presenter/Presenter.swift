@@ -5,7 +5,7 @@
 //  Created by Roberto Edgar Geiss on 13/09/21.
 //
 
-import Foundation
+import Foundation 
 //This is a interface/protocol with one required function didFinishGettingDataFromPresenter
 //The view class will confirm this protol and implement this function to get call back
 

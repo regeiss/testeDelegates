@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+ 
 class Post: Codable
 {
     let userID, id: Int
