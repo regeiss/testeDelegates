@@ -12,8 +12,8 @@ class ServerData
     func buscaJSON() -> [Post]
     {
         let rede = Network()
-        let array = rede.buscaDados()
-        
-        return array
+        let array1 = rede.buscaDados()
+        print(array1.count)
+        return array1
     }
 }
