@@ -23,11 +23,10 @@ class ViewControllerTeste: UIViewController, PresenterProtocol
         // Do any additional setup after loading the view.
     }
     
-    func didFinishGettingDataFromPresenter(data: [Country])
+    func didFinishGettingDataFromPresenter(data: [Post])
     {
         print(data.count)
-        print(data[1].name)
-        lblTeste.text = data[1].name
+        lblTeste.text = data[1].body
     }
     
     func setUpPresenter(forViewController vc: ViewControllerTeste) -> Presenter

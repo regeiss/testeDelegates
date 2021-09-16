@@ -11,7 +11,7 @@ import Foundation
 
 protocol PresenterProtocol
 {
-  func didFinishGettingDataFromPresenter(data: [Country])
+  func didFinishGettingDataFromPresenter(data: [Post])
 }
 
 //confirm to InteractorProtocol
@@ -24,7 +24,7 @@ class Presenter : InteractorProtocol
   var presenterProtocol : PresenterProtocol?
   
   //implement required function to get callback
-  func didFinishGettingDataFromInteractor(data: [Country])
+  func didFinishGettingDataFromInteractor(data: [Post])
   {
     //update delegates that we have received some data
     presenterProtocol?.didFinishGettingDataFromPresenter(data: data)

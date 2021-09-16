@@ -10,7 +10,7 @@ import UIKit
 class CountriesTableViewController: UITableViewController, PresenterProtocol
 {
     var presenter: Presenter?
-    var countries: [Country]? 
+    var posts: [Post]?
     
     override func viewDidLoad()
     {
@@ -22,9 +22,9 @@ class CountriesTableViewController: UITableViewController, PresenterProtocol
         print("viewdidload")
     }
     //must implement required function which is didFinishGettingDataFromInteractor
-     func didFinishGettingDataFromPresenter(data: [Country])
+     func didFinishGettingDataFromPresenter(data: [Post])
      {
-         countries = data
+         posts = data
      }
      
     // MARK: - Table view data source
@@ -36,21 +36,22 @@ class CountriesTableViewController: UITableViewController, PresenterProtocol
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        print(countries?.count as Any)
-        return countries?.count ?? 0
+        print("Contagem de posts")
+        print(posts?.count as Any)
+        return posts?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCell", for: indexPath)
-        let country = countries?[indexPath.row]
-        cell.textLabel?.text = country?.name
+        let country = posts?[indexPath.row]
+        cell.textLabel?.text = country?.body
         return cell
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
-        return "Secao \(section)"
+        return "Seção: posts -> \(section)"
     }
     
     func setUpPresenter(forViewController vc: CountriesTableViewController) -> Presenter

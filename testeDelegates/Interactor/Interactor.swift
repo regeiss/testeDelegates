@@ -11,7 +11,7 @@ import Foundation
 //The presenter class will confirm this protol and implement this function to get call back
 protocol InteractorProtocol
 {
-  func didFinishGettingDataFromInteractor(data: [Country])
+  func didFinishGettingDataFromInteractor(data: [Post])
 }
 
 class Interactor
@@ -29,7 +29,7 @@ class Interactor
   func getDataFromExternalSources()
   {
     //some code which fetches data will go here
-    let serverData = ServerData().countries
+      let serverData = ServerData().buscaJSON()
     //update presenter
     interactorProtocol?.didFinishGettingDataFromInteractor(data: serverData)
   }

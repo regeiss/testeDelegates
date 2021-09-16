@@ -7,7 +7,7 @@
 
 import Foundation
  
-class Post: Codable
+class Post: Codable, Identifiable
 {
     let userID, id: Int
     let title, body: String

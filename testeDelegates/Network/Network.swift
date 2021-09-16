@@ -9,32 +9,41 @@ import Foundation
 
 class Network
 {
-    func buscaDados()
+    func buscaDados() -> [Post]
     {
-        let session = URLSession.shared
         let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
-        let task = session.dataTask(with: url, completionHandler: { data, response, error in
-            // Check the response
-            print(response as Any)
-            
-            // Check if an error occured
-            if error != nil {
-                // HERE you can manage the error
-                print(error as Any)
-                return
+        var posts: [Post] = []
+        var request = URLRequest(url: url)
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let task = URLSession.shared.dataTask(with: url)
+        { data, response, error in
+            if let data = data
+            {
+                if let posts1 = try? JSONDecoder().decode([Post].self, from: data)
+                {
+                    print(posts1[0].userID)
+                    print(posts1[0].body)
+                    posts = posts1
+                }
+                else
+                {
+                    print("Invalid Response")
+                }
+            } else if let error = error {
+                print("HTTP Request Failed \(error)")
             }
-            
-            // Serialize the data into an object
-            do {
-                let json = try JSONDecoder().decode([Post].self, from: data! )
-                //try JSONSerialization.jsonObject(with: data!, options: [])
-                print(json)
-            } catch {
-                print("Error during JSON serialization: \(error.localizedDescription)")
+            guard let httpResponse = response as? HTTPURLResponse,
+                (200...299).contains(httpResponse.statusCode)
+            else
+            {
+                print("Error with the response, unexpected status code: \(String(describing: response))")
+                   return
             }
-            
-        })
+        }
         task.resume()
         
+        return posts
     }
 }

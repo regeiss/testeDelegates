@@ -9,13 +9,11 @@ import Foundation
  
 class ServerData
 {
-    var countries = [
-        Country(isoCode: "at", name: "Austria"),
-        Country(isoCode: "fr", name: "Franca"),
-        Country(isoCode: "br", name: "Brasil"),
-        Country(isoCode: "de", name: "Alemanha"),
-        Country(isoCode: "el", name: "Grecia"),
-        Country(isoCode: "be", name: "Belgica"),
-        Country(isoCode: "ar", name: "Argentina"),
-    ]
+    func buscaJSON() -> [Post]
+    {
+        let rede = Network()
+        let array = rede.buscaDados()
+        
+        return array
+    }
 }
