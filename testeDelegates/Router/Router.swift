@@ -13,6 +13,7 @@ class Router
   //class function so that we can call it without creating object of router class
   class func getRootScreen() -> UIViewController
   {
+    print("Executando router")
     //get storyboard object
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     
@@ -27,7 +28,7 @@ class Router
     
     //init view controller's presenter object
     vc.presenter = presenter
-    
+
     //finally return vc
     return vc
   }

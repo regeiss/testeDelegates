@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E14E60D226F1274600385A2E /* ViewControllerTeste.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14E60D126F1274600385A2E /* ViewControllerTeste.swift */; };
 		E14E60D926F2AAFB00385A2E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14E60D826F2AAFB00385A2E /* Network.swift */; };
 		E14E60DB26F2AD0200385A2E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14E60DA26F2AD0200385A2E /* Post.swift */; };
 		E176A6E926EAA668005E0220 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E176A6E826EAA668005E0220 /* AppDelegate.swift */; };
@@ -24,7 +23,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E14E60D126F1274600385A2E /* ViewControllerTeste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTeste.swift; sourceTree = "<group>"; };
 		E14E60D826F2AAFB00385A2E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		E14E60DA26F2AD0200385A2E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		E176A6E526EAA668005E0220 /* testeDelegates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testeDelegates.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				E176A6FC26EAAC5E005E0220 /* CountriesTableViewController.swift */,
-				E14E60D126F1274600385A2E /* ViewControllerTeste.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,7 +211,6 @@
 				E14E60DB26F2AD0200385A2E /* Post.swift in Sources */,
 				E176A70726F026B6005E0220 /* Router.swift in Sources */,
 				E176A70326F01D72005E0220 /* Interactor.swift in Sources */,
-				E14E60D226F1274600385A2E /* ViewControllerTeste.swift in Sources */,
 				E176A70526F024FC005E0220 /* Presenter.swift in Sources */,
 				E176A70126ED0ADE005E0220 /* ServerData.swift in Sources */,
 				E176A6FF26EAD4D7005E0220 /* Country.swift in Sources */,

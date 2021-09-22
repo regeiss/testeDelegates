@@ -19,17 +19,12 @@ class Interactor
   //we must expose a protocol reference variable which will be used for creating contract between delagate and delegator.
   var interactorProtocol: InteractorProtocol?
   
-  /*
-   get data from external sources
-   external sources may be a
-   -URLSession based networking call
-   -get data from local data base
-   -get data from file system
-   */
+  // get data from external sources
   func getDataFromExternalSources()
   {
     //some code which fetches data will go here
       let serverData = ServerData().buscaJSON()
+      print("Executando interactor")
     //update presenter
     interactorProtocol?.didFinishGettingDataFromInteractor(data: serverData)
   }

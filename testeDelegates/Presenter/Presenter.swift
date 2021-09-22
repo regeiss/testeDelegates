@@ -28,6 +28,7 @@ class Presenter : InteractorProtocol
   {
     //update delegates that we have received some data
     presenterProtocol?.didFinishGettingDataFromPresenter(data: data)
+      print("Executando presenter")
   }
   
   func getDataFromInteractor()

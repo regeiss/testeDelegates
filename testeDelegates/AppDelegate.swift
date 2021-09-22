@@ -16,11 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     {
         // Override point for customization after application launch.
         let vc = Router.getRootScreen()
-         
-         window = UIWindow(frame: UIScreen.main.bounds)
-         window?.rootViewController = vc
-         window?.makeKeyAndVisible()
-         
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = vc
+        window?.makeKeyAndVisible()
+        
         return true
     }
 

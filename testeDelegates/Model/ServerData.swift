@@ -9,11 +9,13 @@ import Foundation
  
 class ServerData
 {
+    var someData: [Post]?
+    
     func buscaJSON() -> [Post]
     {
         let rede = Network()
-        let array1 = rede.buscaDados()
-        print(array1.count)
-        return array1
+        someData = rede.buscaDados()
+        print(someData!.count)
+        return someData!
     }
 }

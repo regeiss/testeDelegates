@@ -19,7 +19,7 @@ class CountriesTableViewController: UITableViewController, PresenterProtocol
         setUpInteractor(forPresenter: presenter)
         presenter.getDataFromInteractor()
         
-        print("viewdidload")
+        print("Executando view")
     }
     //must implement required function which is didFinishGettingDataFromInteractor
      func didFinishGettingDataFromPresenter(data: [Post])
@@ -36,16 +36,14 @@ class CountriesTableViewController: UITableViewController, PresenterProtocol
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        print("Contagem de posts")
-        print(posts?.count as Any)
         return posts?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCell", for: indexPath)
-        let country = posts?[indexPath.row]
-        cell.textLabel?.text = country?.body
+        let post = posts?[indexPath.row]
+        cell.textLabel?.text = post?.title
         return cell
     }
 
