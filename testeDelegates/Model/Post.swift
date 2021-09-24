@@ -9,8 +9,10 @@ import Foundation
  
 struct Post: Codable, Identifiable
 {
-    var userID, id: Int
-    var title, body: String
+    var userId: Int
+    var id: Int
+    var title: String
+    var body: String
 }
 
 //    enum CodingKeys: String, CodingKey
