@@ -7,12 +7,21 @@
 
 import Foundation
  
-struct Post: Codable, Identifiable
+struct Post: Codable
 {
-    var userId: Int
-    var id: Int
-    var title: String
-    var body: String
+
+    enum CodingKeys: String, CodingKey
+    {
+        case id
+        case title
+        case body
+        case userIdentifier = "userId"
+    }
+
+    let id: Int
+    let title: String
+    let body: String
+    let userIdentifier: Int
 }
 
 //    enum CodingKeys: String, CodingKey
@@ -29,3 +38,55 @@ struct Post: Codable, Identifiable
 //        self.body = body
 //    }
 //}
+//import Foundation
+//import PlaygroundSupport
+//
+//PlaygroundPage.current.needsIndefiniteExecution = true
+//
+//struct Post: Codable {
+//
+//    enum CodingKeys: String, CodingKey {
+//        case id
+//        case title
+//        case body
+//        case userIdentifier = "userId"
+//    }
+//
+//    let id: Int
+//    let title: String
+//    let body: String
+//    let userIdentifier: Int
+//}
+//
+//let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
+//
+//URLSession.shared.dataTask(with: url) { data, response, error in
+//    if let error = error {
+//        print("Error: \(error.localizedDescription)")
+//        PlaygroundPage.current.finishExecution()
+//    }
+//    guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+//        print("Error: invalid HTTP response code")
+//        PlaygroundPage.current.finishExecution()
+//    }
+//    guard let data = data else {
+//        print("Error: missing data")
+//        PlaygroundPage.current.finishExecution()
+//    }
+//
+//    // feel free to uncomment this for debugging data
+//    // print(String(data: data, encoding: .utf8))
+//
+//    do {
+//        let decoder = JSONDecoder()
+//        let posts = try decoder.decode([Post].self, from: data)
+//
+//        print(posts.map { $0.title })
+//        PlaygroundPage.current.finishExecution()
+//    }
+//    catch {
+//        print("Error: \(error.localizedDescription)")
+//        PlaygroundPage.current.finishExecution()
+//    }
+//}.resume()
+

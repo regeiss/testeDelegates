@@ -17,15 +17,14 @@ protocol InteractorProtocol
 class Interactor
 {
   //we must expose a protocol reference variable which will be used for creating contract between delagate and delegator.
-  var interactorProtocol: InteractorProtocol?
-  
+    var interactorProtocol: InteractorProtocol?
+    var serverData = [Post]()
   // get data from external sources
-  func getDataFromExternalSources()
-  {
+    func getDataFromExternalSources()
+    {
     //some code which fetches data will go here
-      let serverData = ServerData().buscaJSON()
-      print("Executando interactor")
+      serverData = ServerData().buscaJSON()
     //update presenter
-    interactorProtocol?.didFinishGettingDataFromInteractor(data: serverData)
-  }
+      interactorProtocol?.didFinishGettingDataFromInteractor(data: serverData)
+    }
 }
