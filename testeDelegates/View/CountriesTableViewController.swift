@@ -43,7 +43,7 @@ class CountriesTableViewController: UITableViewController, PresenterProtocol
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCell", for: indexPath)
         let post = posts?[indexPath.row]
-        cell.textLabel?.text = post?.title
+        cell.textLabel?.text = String(post!.id) + post!.title
         return cell
     }
 
