@@ -20,7 +20,7 @@ class Network
     var posts: [Post] = []
     let semaphore = DispatchSemaphore(value: 0)
     
-    func buscaDados3() -> [Post]
+    func buscaDados() -> [Post]
     {
         print("Executando network")
         let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
@@ -47,45 +47,36 @@ class Network
         return posts
     }
     
-    func buscaDados2() -> [Post]
-    {
-        print("Executando network 2")
+//    func buscaDados() -> [Post]
+//    {
+//        print("Executando network 2")
 //        let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
-//        self.cancellable = URLSession
-//            .shared
-//            .dataTaskPublisher(for: url)
-//            .tryMap() { element -> Data in
-//                guard let httpResponse = element.response as? HTTPURLResponse,
-//                    httpResponse.statusCode == 200
-//                else
-//                {
-//                    throw URLError(.badServerResponse)
+//        let publisher = URLSession.shared.dataTaskPublisher(for: url)
+//        let cancellable = publisher.sink(
+//            receiveCompletion: { completion in
+//                switch completion {
+//                case .failure(let error):
+//                    print(error)
+//                case .finished:
+//                    print("Success")
 //                }
-//                return element.data
-//                }
-//            .decode(type: [Post].self, decoder: JSONDecoder())
-//            .sink(receiveCompletion: { print ("Received completion: \($0).") },
-//                  receiveValue: (((data: posts, response: URLResponse ))))
+//            },
+//            receiveValue: { value in
+//                let decoder = JSONDecoder()
 //
-//        semaphore.wait()
-        return posts
-    }
-    
-    func buscaDados() -> [Post]
-    {
-        print("Executando network 2")
-        let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
-        let publisher = URLSession.shared.dataTaskPublisher(for: url)
-        let cancellable = publisher.sink(receiveCompletion: {completion in switch completion
-            {
-        case .failure(let error): print(error)
-        case .finished: print("sucesso")
-        }
-        }, receiveValue: {value in print(value)})
-        
-        semaphore.wait()
-        return posts
-    }
+//                do {
+//                    // Since each value passed into our closure will be a tuple
+//                    // containing the downloaded data, as well as the network
+//                    // response itself, we're accessing the 'data' property here:
+//                    self.posts = try decoder.decode([Post].self, from: value.data)
+//                } catch {
+//                    print(error)
+//                }
+//            }
+//        )
+//        //semaphore.wait()
+//        return posts
+//    }
 }
 
 

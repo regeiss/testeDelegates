@@ -6,21 +6,30 @@
 //
 
 import UIKit 
+import Combine
 
 class CountriesTableViewController: UITableViewController, PresenterProtocol
 {
     var presenter: Presenter?
     var posts: [Post]?
+    var storage = Set<AnyCancellable>()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        NotificationCenter.default.publisher(for: UIWindowScene.didEnterBackgroundNotification)
+            .sink{_ in print("entering background")}
+            .store(in: &self.storage)
+        
         let presenter = setUpPresenter(forViewController: self)
         setUpInteractor(forPresenter: presenter)
         presenter.getDataFromInteractor()
         
         print("Executando view")
     }
+    
+ 
+    
     //must implement required function which is didFinishGettingDataFromInteractor
      func didFinishGettingDataFromPresenter(data: [Post])
      {
